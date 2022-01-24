@@ -89,38 +89,6 @@ trialPD3 = df.iloc[:,2] #third column (Card Member)
         #print('"Date" column set.')
     #    pass
 
-##CheckDate(trialPD1)
-#print(pd.to_datetime(trialPD1, errors='raise').ffill())
-##print(trialPD1.dtype)
-##CheckDate(trialPD2)
-
-##try: #Failed assignment of date column, int or float cannot be used for one isinstance
-    #for item in trialPD1:
-    #    if isinstance(item, int or float)
-##    trialPD1 = pd.to_datetime(trialPD1, errors='raise').ffill()
-##    print('trialPD1 is a date.')
-##except ValueError:
-##    print('Not a date.')
-##else:
-##    trialPD1.name = 'Date'
-##    print('"Date" column set.')
-##try:
-##    trialPD2 = pd.to_datetime(trialPD2, errors='raise').ffill()
-##except ValueError:
-##    pass #do nothing
-    #print('Not (trialPD1) a date.')
-##else: 
-##    print('2')
-##try:
-##    trialPD3 = pd.to_datetime(trialPD3, errors='raise').ffill()
-##    print('trialPD1 is a date.')
-##except ValueError:
-##    print('Not a date.')
-##else:
-##    print('3')
-    #trialPD3.name = 'Date'
-    #print('"Date" column set.')
-
 for item in trialPD1:
     if isinstance(item, int):
         break
@@ -206,10 +174,6 @@ print(trialPD5.name)
 #-----------------------------------
 
 #Determine if column is 'Account #' column, by determining if int.
-#print(trialPD4[0:3].to_string(index=False).isalpha()) #determining if the first value of the fourth column has letters in them
-#print(trialPD4[0:3].to_string(index=False).strip("-").isdigit()) #determining if the first value of the fourth column has numbers (remove any negatives with .lstrip("-")) in them
-#print(trialPD4[0:3].to_string(index=False).strip("-"))
-
 def CheckInt(c):
     for item in c:
         n = isinstance(item, int)
@@ -248,7 +212,6 @@ def Create_DF(y):
         return df_item
 
 def CheckFloat(x):
-    #x = trialPD4[0:3]
     for item in x:
         if isinstance(item, float):
             print(item)            #prints item, that is a float
@@ -264,32 +227,6 @@ def CheckFloat(x):
             #print('Is not a float.') #passes if column is not a float
             pass #do nothing
             #return False
-    
-#def CheckInt(x):
-#try: #failed float checked
-    #pd.to_numeric(trialPD5[0:3], errors='raise') #determining if the first 3 values of the fourth column has float values (values with decimals) in them; Didnt use cause returning floats and int as True, only want floats
-    #x = trialPD5[0:3].apply(pd.to_numeric, errors='raise'); didnt use cause couldnt call specific dtype
-    #print('Is a float.')
-#except ValueError:
-    #print('Not a Float.')
-#def CheckFloat(x): #-----Failed 'Debit' & 'Credit' column assignment, was returning positive and negative values as floats so each item was alternated as debit and credit
-    #x = trialPD4[0:3]
-#    for item in x:
-#        if isinstance(item, float):
-            #print('Is a float.')
-#            x.name = 'Debit'
-#            print(x.name)
-#            print(x)
-            #return True
-#            if isinstance((item*-1), float):               
-#                x.name = 'Credit'
-#                print(x.name)
-#                print(x)
-#            else:
-#                pass #do nothing
-#        else:
-#            print('Is not a float.')
-#            pass #do nothing
 
 CheckFloat(trialPD4) #verifies account # is not float
 CheckFloat(trialPD1) #verifies is not float
@@ -319,7 +256,6 @@ def CheckAccount(b):
     if Account_Name in b[0].lower().strip():
     #Accounts (i.e Account_Name) in trialPD4[0].lower().strip(): ---> returned: 'Is an account.'
     #Account_Name in trialPD4[0:3].to_string(index=False).lower().strip(): ----> returned: 'Is an account.'
-    #convert series string into string: x[1:2].astype(str).str
         #print('Account_Name is an account.')
         b.name = 'Account Name'
         print(b.name)
