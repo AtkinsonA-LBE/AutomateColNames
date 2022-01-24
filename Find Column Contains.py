@@ -205,12 +205,11 @@ else:
     print('"Account #" column set.')
 
 #Determine if column debit or credit column; 1) is float?, 2) is -? => credit, 3) is +? => debit 
-def Create_DF(y):
-        y_data = {'Debit': [y]} 
-        df_item = pd.DataFrame(y_data)
-        print(df_item)
-        return df_item
-
+#def Create_DF(y):
+#        y_data = {'Debit': [y]} 
+#        df_item = pd.DataFrame(y_data)
+#        print(df_item)
+#        return df_item
 def CheckFloat(x):
     for item in x:
         if isinstance(item, float):
@@ -218,7 +217,7 @@ def CheckFloat(x):
             if item > 0:
                 x.name = 'Debit'
                 print(x.name)      #then assigns and prints column name as 'Debit' if item > 0
-                Create_DF(item)
+#               Create_DF(item)
             elif item < 0:
                 x.name = 'Credit'  #or assigns and prints column name as 'Credit' if item < 0
                 print(x.name)
@@ -240,7 +239,7 @@ CheckFloat(trialPD5) #verifies amount is float
 #print(New_Column)
 #print(New_Column1)
 print('Debit and Credit Columns assigned')
-print(trialPD5.items())
+
 
 #Determine if column is the 'Amount Name' or 'Card Member' column
 Account_Name = input('Checking account names: What is the first or last name on the account? ')
